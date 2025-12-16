@@ -353,5 +353,6 @@ export const JobPost = () => {
                 </form>
             </div>
         </div>
-    );
+    </div>
+  );
 };
