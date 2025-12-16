@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Link, useLocation, useNavigate } from 'react-router-dom';
-import { Home, BookOpen, Trophy, User, MessageSquare, Shield, Menu, X, LayoutDashboard, LogOut, Sparkles, Settings, UserCircle, Briefcase, ChevronDown, FileText, Users, Database, Coins, GraduationCap, Facebook, Twitter, Instagram, Linkedin, Youtube, ShoppingBag, Zap, Crown, Rocket, Globe, Moon, Sun, Info } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Trophy, User, Menu, X, LogOut, Sparkles, UserCircle, Briefcase, ChevronDown, FileText, Users, ShoppingBag, Rocket, Moon, Sun, Info, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
 import { ProfileModal } from './ProfileModal';
 import { useLanguage } from '../LanguageContext';
 import { useTheme } from '../ThemeContext';

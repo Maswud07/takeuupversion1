@@ -194,17 +194,17 @@ export const JobPortalHome = () => {
                   {/* Dot Matrix Pattern */}
                   <div className="absolute top-0 right-0 h-full w-1/2 overflow-hidden opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                       <svg width="100%" height="100%" viewBox="0 0 200 400" preserveAspectRatio="none">
-                          <pattern id="blue-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                              <circle cx="2" cy="2" r="1.5" className="fill-blue-500" />
-                          </pattern>
-                          <rect x="0" y="0" width="100%" height="100%" fill="url(#blue-dots)" />
-                          
-                          {/* Gradient Mask to fade dots */}
                           <defs>
+                              <pattern id="blue-dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                                  <circle cx="2" cy="2" r="1.5" className="fill-blue-500" />
+                              </pattern>
                               <linearGradient id="fade-left" x1="0" y1="0" x2="1" y2="0">
                                   <stop offset="0%" stopColor="black" stopOpacity="1" />
                                   <stop offset="100%" stopColor="black" stopOpacity="0" />
                               </linearGradient>
+                              <mask id="fade-mask">
+                                  <rect x="0" y="0" width="100%" height="100%" fill="url(#fade-left)" />
+                              </mask>
                           </defs>
                           <rect x="0" y="0" width="100%" height="100%" fill="url(#blue-dots)" mask="url(#fade-mask)" />
                       </svg>
