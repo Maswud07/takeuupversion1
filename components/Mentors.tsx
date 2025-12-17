@@ -79,23 +79,23 @@ export const Mentors = () => {
     });
 
     return (
-        <div className="max-w-7xl mx-auto px-4 py-12 min-h-screen" onClick={() => setActiveDropdown(null)}>
+        <div className="max-w-7xl mx-auto px-4 py-12 min-h-screen bg-slate-50 dark:bg-[#020617] transition-colors duration-500" onClick={() => setActiveDropdown(null)}>
             <div className="mb-10">
-                <h1 className="text-4xl font-bold text-white mb-4">Find Your Perfect Mentor</h1>
-                <p className="text-slate-400">Browse and connect with top mentors to guide you on your learning journey.</p>
+                <h1 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">Find Your Perfect Mentor</h1>
+                <p className="text-slate-600 dark:text-slate-400">Browse and connect with top mentors to guide you on your learning journey.</p>
             </div>
 
             {/* Filters - Added relative z-30 to stack above grid */}
             <div className="flex flex-col lg:flex-row gap-4 mb-12 relative z-30" onClick={(e) => e.stopPropagation()}>
                 {/* Search Bar */}
                 <div className="relative flex-1">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500" size={20} />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" size={20} />
                     <input 
                         type="text" 
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Search by name, subject, or institution..." 
-                        className="w-full bg-slate-800 border border-slate-700 rounded-xl py-3 pl-12 pr-4 text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all"
+                        className="w-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl py-3 pl-12 pr-4 text-slate-900 dark:text-white focus:ring-2 focus:ring-cyan-500 focus:outline-none transition-all shadow-sm"
                     />
                 </div>
                 
@@ -113,10 +113,10 @@ export const Mentors = () => {
                                         e.stopPropagation();
                                         setActiveDropdown(isActive ? null : label);
                                     }}
-                                    className={`flex items-center space-x-2 px-4 py-3 rounded-xl border whitespace-nowrap transition-colors ${
+                                    className={`flex items-center space-x-2 px-4 py-3 rounded-xl border whitespace-nowrap transition-colors shadow-sm ${
                                         isActive || isFiltered
-                                        ? 'bg-cyan-900/30 border-cyan-500 text-cyan-400 shadow-[0_0_10px_rgba(6,182,212,0.2)]' 
-                                        : 'bg-slate-800 border-slate-700 text-slate-300 hover:bg-slate-700 hover:border-slate-600'
+                                        ? 'bg-cyan-50 dark:bg-cyan-900/30 border-cyan-500 text-cyan-600 dark:text-cyan-400 shadow-cyan-100 dark:shadow-[0_0_10px_rgba(6,182,212,0.2)]' 
+                                        : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
                                     }`}
                                 >
                                     <span className="font-medium">{label}{isFiltered && `: ${currentValue}`}</span>
@@ -126,7 +126,7 @@ export const Mentors = () => {
                                 {/* Dropdown Menu */}
                                 {isActive && (
                                     <div 
-                                        className="absolute top-full mt-2 left-0 w-56 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+                                        className="absolute top-full mt-2 left-0 w-56 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl z-50 overflow-hidden animate-in fade-in zoom-in-95 duration-200"
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <div className="max-h-60 overflow-y-auto custom-scrollbar p-1">
@@ -136,8 +136,8 @@ export const Mentors = () => {
                                                     onClick={() => handleFilterSelect(label, option)}
                                                     className={`w-full text-left px-3 py-2.5 text-sm flex items-center justify-between rounded-lg transition-colors ${
                                                         currentValue === option 
-                                                        ? 'text-cyan-400 bg-cyan-950/50 font-bold' 
-                                                        : 'text-slate-300 hover:bg-slate-800 hover:text-white'
+                                                        ? 'text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/50 font-bold' 
+                                                        : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:text-slate-900 dark:hover:text-white'
                                                     }`}
                                                 >
                                                     {option}
@@ -155,7 +155,7 @@ export const Mentors = () => {
                     {(filters.subject !== 'All' || filters.availability !== 'All' || filters.rating !== 'All' || filters.level !== 'All') && (
                         <button 
                             onClick={() => setFilters({ subject: 'All', availability: 'All', rating: 'All', level: 'All' })}
-                            className="flex items-center justify-center px-4 py-3 rounded-xl border border-red-500/30 text-red-400 hover:bg-red-500/10 transition-colors whitespace-nowrap"
+                            className="flex items-center justify-center px-4 py-3 rounded-xl border border-red-200 dark:border-red-500/30 bg-red-50 dark:bg-transparent text-red-500 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-500/10 transition-colors whitespace-nowrap"
                         >
                             <X size={16} className="mr-2" /> Clear
                         </button>
@@ -166,42 +166,42 @@ export const Mentors = () => {
             {/* Grid - z-0 to stay below filters */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-0">
                 {filteredMentors.length > 0 ? filteredMentors.map(mentor => (
-                    <div key={mentor.id} className="bg-slate-800/50 rounded-3xl p-6 border border-slate-700/50 hover:border-cyan-500/30 transition-all group flex flex-col items-center text-center hover:-translate-y-1 shadow-lg hover:shadow-cyan-900/10">
+                    <div key={mentor.id} className="bg-white dark:bg-slate-800/50 rounded-3xl p-6 border border-slate-200 dark:border-slate-700/50 hover:border-cyan-500/30 transition-all group flex flex-col items-center text-center hover:-translate-y-1 shadow-lg dark:shadow-none hover:shadow-xl dark:hover:shadow-cyan-900/10">
                         <div className="relative mb-4">
                             <div className="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-cyan-400 to-pink-400 group-hover:scale-105 transition-transform duration-300">
-                                <img src={mentor.image} alt={mentor.name} className="w-full h-full rounded-full object-cover border-4 border-slate-900" />
+                                <img src={mentor.image} alt={mentor.name} className="w-full h-full rounded-full object-cover border-4 border-white dark:border-slate-900" />
                             </div>
-                            <div className="absolute bottom-0 right-0 bg-slate-900 rounded-full px-2 py-0.5 border border-slate-700 text-[10px] font-bold text-slate-300">
+                            <div className="absolute bottom-0 right-0 bg-slate-900 dark:bg-slate-900 rounded-full px-2 py-0.5 border border-slate-700 text-[10px] font-bold text-white dark:text-slate-300">
                                 {mentor.level}
                             </div>
                         </div>
-                        <h3 className="text-xl font-bold text-white mb-1">{mentor.name}</h3>
-                        <p className="text-slate-400 text-sm mb-3 h-10 flex items-center justify-center">{mentor.role}</p>
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">{mentor.name}</h3>
+                        <p className="text-slate-500 dark:text-slate-400 text-sm mb-3 h-10 flex items-center justify-center">{mentor.role}</p>
                         
                         <div className="flex flex-wrap justify-center gap-2 mb-4">
-                             <span className="px-2 py-1 bg-slate-900 rounded-md text-xs text-slate-400 border border-slate-700">{mentor.subjects[0]}</span>
-                             <span className="px-2 py-1 bg-slate-900 rounded-md text-xs text-slate-400 border border-slate-700">{mentor.availability}</span>
+                             <span className="px-2 py-1 bg-slate-100 dark:bg-slate-900 rounded-md text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">{mentor.subjects[0]}</span>
+                             <span className="px-2 py-1 bg-slate-100 dark:bg-slate-900 rounded-md text-xs text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">{mentor.availability}</span>
                         </div>
 
-                        <div className="flex items-center space-x-1 text-yellow-400 mb-6 bg-yellow-400/10 px-3 py-1 rounded-full border border-yellow-400/20">
+                        <div className="flex items-center space-x-1 text-yellow-500 dark:text-yellow-400 mb-6 bg-yellow-50 dark:bg-yellow-400/10 px-3 py-1 rounded-full border border-yellow-200 dark:border-yellow-400/20">
                             <Star size={14} fill="currentColor" />
-                            <span className="font-bold text-sm">{mentor.rating}</span>
+                            <span className="font-bold text-sm text-yellow-700 dark:text-yellow-400">{mentor.rating}</span>
                         </div>
                         <button onClick={() => alert(`Opening profile for ${mentor.name}`)} className="w-full py-2.5 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-bold text-sm transition-colors shadow-lg shadow-cyan-900/20">
                             View Profile
                         </button>
                     </div>
                 )) : (
-                    <div className="col-span-full py-20 flex flex-col items-center justify-center text-slate-500 border-2 border-dashed border-slate-800 rounded-3xl">
+                    <div className="col-span-full py-20 flex flex-col items-center justify-center text-slate-500 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-3xl">
                         <Search size={48} className="mb-4 opacity-50" />
-                        <h3 className="text-xl font-bold text-slate-400 mb-2">No Mentors Found</h3>
-                        <p>Try adjusting your filters or search query.</p>
+                        <h3 className="text-xl font-bold text-slate-700 dark:text-slate-400 mb-2">No Mentors Found</h3>
+                        <p className="text-slate-500">Try adjusting your filters or search query.</p>
                         <button 
                             onClick={() => {
                                 setFilters({ subject: 'All', availability: 'All', rating: 'All', level: 'All' });
                                 setSearchQuery('');
                             }}
-                            className="mt-6 px-6 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition-colors"
+                            className="mt-6 px-6 py-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-white rounded-lg transition-colors font-medium"
                         >
                             Reset All Filters
                         </button>

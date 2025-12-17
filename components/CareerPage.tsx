@@ -11,9 +11,9 @@ const STATIC_OPENINGS = [
         location: 'Remote / Dhaka',
         salary: '80k - 120k BDT',
         icon: <Code size={24} />,
-        color: 'text-blue-400',
-        bg: 'bg-blue-500/10',
-        border: 'border-blue-500/30'
+        color: 'text-blue-600 dark:text-blue-400',
+        bg: 'bg-blue-50 dark:bg-blue-500/10',
+        border: 'border-blue-200 dark:border-blue-500/30'
     },
     {
         id: 2,
@@ -23,9 +23,9 @@ const STATIC_OPENINGS = [
         location: 'Studio (Dhaka)',
         salary: 'Negotiable',
         icon: <GraduationCap size={24} />,
-        color: 'text-yellow-400',
-        bg: 'bg-yellow-500/10',
-        border: 'border-yellow-500/30'
+        color: 'text-yellow-600 dark:text-yellow-400',
+        bg: 'bg-yellow-50 dark:bg-yellow-500/10',
+        border: 'border-yellow-200 dark:border-yellow-500/30'
     },
     {
         id: 3,
@@ -35,9 +35,9 @@ const STATIC_OPENINGS = [
         location: 'Remote',
         salary: 'Project Based',
         icon: <Video size={24} />,
-        color: 'text-pink-400',
-        bg: 'bg-pink-500/10',
-        border: 'border-pink-500/30'
+        color: 'text-pink-600 dark:text-pink-400',
+        bg: 'bg-pink-50 dark:bg-pink-500/10',
+        border: 'border-pink-200 dark:border-pink-500/30'
     },
     {
         id: 4,
@@ -47,9 +47,9 @@ const STATIC_OPENINGS = [
         location: 'Dhaka',
         salary: '35k - 50k BDT',
         icon: <Zap size={24} />,
-        color: 'text-orange-400',
-        bg: 'bg-orange-500/10',
-        border: 'border-orange-500/30'
+        color: 'text-orange-600 dark:text-orange-400',
+        bg: 'bg-orange-50 dark:bg-orange-500/10',
+        border: 'border-orange-200 dark:border-orange-500/30'
     },
     {
         id: 5,
@@ -59,9 +59,9 @@ const STATIC_OPENINGS = [
         location: 'Remote',
         salary: '10k - 15k BDT',
         icon: <Database size={24} />,
-        color: 'text-emerald-400',
-        bg: 'bg-emerald-500/10',
-        border: 'border-emerald-500/30'
+        color: 'text-emerald-600 dark:text-emerald-400',
+        bg: 'bg-emerald-50 dark:bg-emerald-500/10',
+        border: 'border-emerald-200 dark:border-emerald-500/30'
     }
 ];
 
@@ -103,9 +103,9 @@ export const CareerPage = () => {
         location: job.location || 'Remote',
         salary: job.salary || 'Competitive',
         icon: <Briefcase size={24} />, // Default icon for dynamic jobs
-        color: 'text-purple-400',
-        bg: 'bg-purple-500/10',
-        border: 'border-purple-500/30',
+        color: 'text-purple-600 dark:text-purple-400',
+        bg: 'bg-purple-50 dark:bg-purple-500/10',
+        border: 'border-purple-200 dark:border-purple-500/30',
         hasTest: job.hasTest,
         testConfig: job.testConfig
     }))];
@@ -177,55 +177,55 @@ export const CareerPage = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#020617] text-white font-sans overflow-x-hidden pb-20">
+        <div className="min-h-screen bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-white font-sans overflow-x-hidden pb-20 transition-colors duration-500">
             {/* Ambient Background */}
             <div className="fixed inset-0 pointer-events-none">
-                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[150px]" />
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-600/10 rounded-full blur-[150px]" />
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-200/40 dark:bg-indigo-600/10 rounded-full blur-[150px]" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-200/40 dark:bg-cyan-600/10 rounded-full blur-[150px]" />
                 <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
             </div>
 
             {/* Hero Section */}
             <section className="relative pt-32 pb-20 px-4 text-center z-10">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/50 border border-slate-700 text-slate-300 text-sm font-medium mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 text-sm font-medium mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700 shadow-sm">
                     <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
                     We are hiring!
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight leading-[1.1]">
+                <h1 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-[1.1]">
                     Build the Future of <br/>
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">Education</span>
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 dark:from-cyan-400 dark:via-blue-500 dark:to-purple-600">Education</span>
                 </h1>
                 
-                <p className="text-xl text-slate-400 max-w-2xl mx-auto mb-12 font-light">
+                <p className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 font-light">
                     Join TakeUUp and help millions of students across Bangladesh achieve their dreams. We're looking for passionate individuals to join our mission.
                 </p>
 
-                <div className="flex justify-center gap-8 text-slate-400 text-sm font-medium">
+                <div className="flex justify-center gap-8 text-slate-600 dark:text-slate-400 text-sm font-medium">
                     <div className="flex items-center gap-2">
-                        <Globe size={18} className="text-cyan-500" /> Remote-First Culture
+                        <Globe size={18} className="text-cyan-600 dark:text-cyan-500" /> Remote-First Culture
                     </div>
                     <div className="flex items-center gap-2">
-                        <Heart size={18} className="text-pink-500" /> Impact Driven
+                        <Heart size={18} className="text-pink-600 dark:text-pink-500" /> Impact Driven
                     </div>
                 </div>
             </section>
 
             {/* Benefits Grid */}
             <section className="max-w-7xl mx-auto px-4 mb-24 relative z-10">
-                <h2 className="text-2xl font-bold text-center mb-12">Why Join TakeUUp?</h2>
+                <h2 className="text-2xl font-bold text-center mb-12 text-slate-900 dark:text-white">Why Join TakeUUp?</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {[
                         { title: "Competitive Salary", desc: "We pay top of the market rates to attract the best talent.", icon: <Briefcase size={24} /> },
                         { title: "Growth & Learning", desc: "Access to all our premium courses and paid upskilling.", icon: <GraduationCap size={24} /> },
                         { title: "Flexible Hours", desc: "Work when you're most productive. We care about output, not hours.", icon: <Clock size={24} /> }
                     ].map((item, i) => (
-                        <div key={i} className="bg-slate-900/50 border border-slate-800 p-8 rounded-3xl hover:bg-slate-800 transition-colors group">
-                            <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-cyan-900/10">
+                        <div key={i} className="bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors group shadow-lg dark:shadow-none">
+                            <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center text-cyan-600 dark:text-cyan-400 mb-6 group-hover:scale-110 transition-transform shadow-lg shadow-cyan-900/10">
                                 {item.icon}
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                            <p className="text-slate-400 leading-relaxed">{item.desc}</p>
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">{item.title}</h3>
+                            <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{item.desc}</p>
                         </div>
                     ))}
                 </div>
@@ -235,13 +235,13 @@ export const CareerPage = () => {
             <section className="max-w-5xl mx-auto px-4 relative z-10">
                 <div className="flex items-end justify-between mb-10">
                     <div>
-                        <h2 className="text-3xl font-extrabold text-white mb-2">Open Positions</h2>
-                        <p className="text-slate-400">Come do the best work of your life.</p>
+                        <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white mb-2">Open Positions</h2>
+                        <p className="text-slate-600 dark:text-slate-400">Come do the best work of your life.</p>
                     </div>
                     <div className="hidden md:flex gap-2">
-                        <span className="px-3 py-1 bg-white/10 rounded-full text-xs font-bold text-white">All</span>
-                        <span className="px-3 py-1 bg-transparent border border-slate-700 rounded-full text-xs font-bold text-slate-400 hover:text-white cursor-pointer transition-colors">Engineering</span>
-                        <span className="px-3 py-1 bg-transparent border border-slate-700 rounded-full text-xs font-bold text-slate-400 hover:text-white cursor-pointer transition-colors">Content</span>
+                        <span className="px-3 py-1 bg-slate-200 dark:bg-white/10 rounded-full text-xs font-bold text-slate-900 dark:text-white">All</span>
+                        <span className="px-3 py-1 bg-transparent border border-slate-300 dark:border-slate-700 rounded-full text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors">Engineering</span>
+                        <span className="px-3 py-1 bg-transparent border border-slate-300 dark:border-slate-700 rounded-full text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white cursor-pointer transition-colors">Content</span>
                     </div>
                 </div>
 
@@ -250,7 +250,7 @@ export const CareerPage = () => {
                         <div 
                             key={job.id} 
                             onClick={() => handleApply(job)}
-                            className={`group relative bg-[#0F172A] border ${job.border} p-6 md:p-8 rounded-3xl transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-${job.color.split('-')[1]}-500/10 overflow-hidden cursor-pointer`}
+                            className={`group relative bg-white dark:bg-[#0F172A] border ${job.border} p-6 md:p-8 rounded-3xl transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-2xl hover:shadow-${job.color.split('-')[1]}-500/10 overflow-hidden cursor-pointer`}
                         >
                             {/* Hover Glow */}
                             <div className={`absolute inset-0 bg-gradient-to-r ${job.bg.replace('bg-', 'from-')} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
@@ -261,8 +261,8 @@ export const CareerPage = () => {
                                         {job.icon}
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">{job.role}</h3>
-                                        <div className="flex flex-wrap gap-3 text-sm text-slate-400 mt-2">
+                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{job.role}</h3>
+                                        <div className="flex flex-wrap gap-3 text-sm text-slate-500 dark:text-slate-400 mt-2">
                                             <span className="flex items-center gap-1"><Briefcase size={14} /> {job.dept}</span>
                                             <span className="flex items-center gap-1"><MapPin size={14} /> {job.location}</span>
                                             <span className="flex items-center gap-1"><Clock size={14} /> {job.type}</span>
@@ -271,11 +271,11 @@ export const CareerPage = () => {
                                 </div>
 
                                 <div className="flex flex-col items-end gap-3 w-full md:w-auto">
-                                    <span className="text-white font-bold bg-slate-800 px-3 py-1 rounded-lg text-sm border border-slate-700">
+                                    <span className="text-slate-700 dark:text-white font-bold bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-lg text-sm border border-slate-200 dark:border-slate-700">
                                         {job.salary}
                                     </span>
                                     <button 
-                                        className="flex items-center gap-2 text-sm font-bold text-cyan-400 hover:text-white transition-colors group/btn"
+                                        className="flex items-center gap-2 text-sm font-bold text-cyan-600 dark:text-cyan-400 hover:text-slate-900 dark:hover:text-white transition-colors group/btn"
                                     >
                                         Apply Now <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                                     </button>
@@ -285,15 +285,15 @@ export const CareerPage = () => {
                     ))}
                 </div>
 
-                <div className="mt-16 bg-slate-900 border border-slate-800 rounded-3xl p-8 text-center relative overflow-hidden">
+                <div className="mt-16 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 text-center relative overflow-hidden shadow-lg dark:shadow-none">
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500"></div>
                     <div className="relative z-10">
-                        <Sparkles className="mx-auto text-yellow-400 mb-4" size={32} />
-                        <h3 className="text-xl font-bold text-white mb-2">Don't see your role?</h3>
-                        <p className="text-slate-400 mb-6">
-                            We are always looking for talented individuals. Send your CV to <span className="text-cyan-400 font-mono">careers@takeuup.com</span>
+                        <Sparkles className="mx-auto text-yellow-500 dark:text-yellow-400 mb-4" size={32} />
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Don't see your role?</h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-6">
+                            We are always looking for talented individuals. Send your CV to <span className="text-cyan-600 dark:text-cyan-400 font-mono">careers@takeuup.com</span>
                         </p>
-                        <button onClick={() => window.location.href = 'mailto:careers@takeuup.com'} className="px-6 py-3 bg-white text-slate-900 font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center gap-2 mx-auto">
+                        <button onClick={() => window.location.href = 'mailto:careers@takeuup.com'} className="px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold rounded-xl hover:bg-slate-800 dark:hover:bg-slate-200 transition-colors flex items-center gap-2 mx-auto shadow-lg">
                             <Send size={18} /> Email Us
                         </button>
                     </div>
@@ -303,28 +303,28 @@ export const CareerPage = () => {
             {/* Application Modal */}
             {selectedJob && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onClick={closeApplyModal} />
+                    <div className="absolute inset-0 bg-slate-900/50 dark:bg-black/80 backdrop-blur-sm transition-opacity" onClick={closeApplyModal} />
                     
-                    <div className="relative w-full max-w-2xl bg-[#0F172A] border border-slate-700 rounded-3xl shadow-2xl animate-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col">
+                    <div className="relative w-full max-w-2xl bg-white dark:bg-[#0F172A] border border-slate-200 dark:border-slate-700 rounded-3xl shadow-2xl animate-in zoom-in-95 duration-300 max-h-[90vh] flex flex-col">
                         
                         {showTestIntro ? (
                             // Test Intro View
                             <div className="p-8 text-center">
-                                <div className="w-20 h-20 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <FileCheck size={40} className="text-cyan-400" />
+                                <div className="w-20 h-20 bg-cyan-50 dark:bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <FileCheck size={40} className="text-cyan-600 dark:text-cyan-400" />
                                 </div>
-                                <h2 className="text-3xl font-bold text-white mb-2">Screening Test Required</h2>
-                                <p className="text-slate-400 mb-8 max-w-md mx-auto">
-                                    To complete your application for <span className="text-white font-semibold">{selectedJob.role}</span>, you must pass a short assessment.
+                                <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Screening Test Required</h2>
+                                <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto">
+                                    To complete your application for <span className="text-slate-900 dark:text-white font-semibold">{selectedJob.role}</span>, you must pass a short assessment.
                                 </p>
                                 
                                 <div className="flex justify-center gap-6 mb-8">
-                                    <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 w-32">
-                                        <div className="text-2xl font-bold text-white">{selectedJob.testConfig?.questions?.length || 5}</div>
+                                    <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 w-32">
+                                        <div className="text-2xl font-bold text-slate-900 dark:text-white">{selectedJob.testConfig?.questions?.length || 5}</div>
                                         <div className="text-xs text-slate-500 uppercase font-bold mt-1">Questions</div>
                                     </div>
-                                    <div className="bg-slate-800 p-4 rounded-xl border border-slate-700 w-32">
-                                        <div className="text-2xl font-bold text-white">10</div>
+                                    <div className="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 w-32">
+                                        <div className="text-2xl font-bold text-slate-900 dark:text-white">10</div>
                                         <div className="text-xs text-slate-500 uppercase font-bold mt-1">Minutes</div>
                                     </div>
                                 </div>
@@ -338,7 +338,7 @@ export const CareerPage = () => {
                                     </button>
                                     <button 
                                         onClick={closeApplyModal}
-                                        className="text-slate-500 hover:text-slate-400 text-sm font-medium py-2"
+                                        className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 text-sm font-medium py-2"
                                     >
                                         Take later (Application saved)
                                     </button>
@@ -347,32 +347,32 @@ export const CareerPage = () => {
                         ) : (
                             // Application Form
                             <>
-                                <div className="flex items-center justify-between p-6 border-b border-slate-800">
+                                <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-800">
                                     <div>
-                                        <h3 className="text-xl font-bold text-white mb-1">Apply for {selectedJob.role}</h3>
-                                        <p className="text-slate-400 text-sm">{selectedJob.dept} • {selectedJob.location}</p>
+                                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Apply for {selectedJob.role}</h3>
+                                        <p className="text-slate-500 dark:text-slate-400 text-sm">{selectedJob.dept} • {selectedJob.location}</p>
                                     </div>
-                                    <button onClick={closeApplyModal} className="text-slate-400 hover:text-white bg-slate-800 p-2 rounded-full hover:bg-slate-700 transition-colors">
+                                    <button onClick={closeApplyModal} className="text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-slate-800 p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
                                         <X size={20} />
                                     </button>
                                 </div>
 
-                                <div className="p-6 overflow-y-auto custom-scrollbar flex-1">
+                                <div className="p-6 overflow-y-auto custom-scrollbar flex-1 bg-white dark:bg-[#0F172A]">
                                     <form id="applicationForm" onSubmit={handleSubmitApplication} className="space-y-6">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-400 mb-1.5">Full Name</label>
+                                                <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Full Name</label>
                                                 <input 
                                                     required type="text" name="name" value={formData.name} onChange={handleInputChange}
-                                                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-cyan-500 outline-none transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all"
                                                     placeholder="John Doe"
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-400 mb-1.5">Email Address</label>
+                                                <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Email Address</label>
                                                 <input 
                                                     required type="email" name="email" value={formData.email} onChange={handleInputChange}
-                                                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-cyan-500 outline-none transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all"
                                                     placeholder="john@example.com"
                                                 />
                                             </div>
@@ -380,49 +380,49 @@ export const CareerPage = () => {
 
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-400 mb-1.5">Phone Number</label>
+                                                <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Phone Number</label>
                                                 <input 
                                                     required type="tel" name="phone" value={formData.phone} onChange={handleInputChange}
-                                                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-cyan-500 outline-none transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all"
                                                     placeholder="+880 17..."
                                                 />
                                             </div>
                                             <div>
-                                                <label className="block text-sm font-medium text-slate-400 mb-1.5">Portfolio / LinkedIn</label>
+                                                <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Portfolio / LinkedIn</label>
                                                 <input 
                                                     type="url" name="portfolio" value={formData.portfolio} onChange={handleInputChange}
-                                                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-cyan-500 outline-none transition-all"
+                                                    className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-cyan-500 outline-none transition-all"
                                                     placeholder="https://..."
                                                 />
                                             </div>
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-400 mb-1.5">Upload CV / Resume</label>
-                                            <div className={`border-2 border-dashed rounded-xl p-6 text-center transition-colors ${cvFile ? 'border-cyan-500 bg-cyan-900/20' : 'border-slate-700 hover:bg-slate-800/50 cursor-pointer group'}`}>
+                                            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Upload CV / Resume</label>
+                                            <div className={`border-2 border-dashed rounded-xl p-6 text-center transition-colors ${cvFile ? 'border-cyan-500 bg-cyan-50 dark:bg-cyan-900/20' : 'border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800/50 cursor-pointer group'}`}>
                                                 {!cvFile ? (
                                                     <>
                                                         <input type="file" className="hidden" id="cv-upload" onChange={handleFileChange} accept=".pdf,.doc,.docx" />
                                                         <label htmlFor="cv-upload" className="cursor-pointer block w-full h-full">
-                                                            <div className="w-12 h-12 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-3 text-slate-400 group-hover:text-cyan-400 transition-colors">
+                                                            <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-3 text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                                                                 <Upload size={20} />
                                                             </div>
-                                                            <p className="text-sm font-medium text-white">Click to upload or drag and drop</p>
+                                                            <p className="text-sm font-medium text-slate-900 dark:text-white">Click to upload or drag and drop</p>
                                                             <p className="text-xs text-slate-500 mt-1">PDF, DOCX (Max 5MB)</p>
                                                         </label>
                                                     </>
                                                 ) : (
                                                     <div className="flex items-center justify-between">
                                                         <div className="flex items-center gap-3">
-                                                            <div className="w-10 h-10 bg-cyan-500/20 text-cyan-400 rounded-lg flex items-center justify-center">
+                                                            <div className="w-10 h-10 bg-cyan-100 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 rounded-lg flex items-center justify-center">
                                                                 <FileText size={20} />
                                                             </div>
                                                             <div className="text-left">
-                                                                <p className="text-sm font-bold text-white truncate max-w-[200px]">{cvFile.name}</p>
-                                                                <p className="text-xs text-slate-400">{(cvFile.size / 1024 / 1024).toFixed(2)} MB</p>
+                                                                <p className="text-sm font-bold text-slate-900 dark:text-white truncate max-w-[200px]">{cvFile.name}</p>
+                                                                <p className="text-xs text-slate-500">{(cvFile.size / 1024 / 1024).toFixed(2)} MB</p>
                                                             </div>
                                                         </div>
-                                                        <button onClick={handleRemoveFile} type="button" className="p-2 hover:bg-red-500/20 text-slate-400 hover:text-red-400 rounded-full transition-colors">
+                                                        <button onClick={handleRemoveFile} type="button" className="p-2 hover:bg-red-100 dark:hover:bg-red-500/20 text-slate-400 hover:text-red-500 dark:hover:text-red-400 rounded-full transition-colors">
                                                             <Trash2 size={18} />
                                                         </button>
                                                     </div>
@@ -431,23 +431,23 @@ export const CareerPage = () => {
                                         </div>
 
                                         <div>
-                                            <label className="block text-sm font-medium text-slate-400 mb-1.5">Why are you a good fit?</label>
+                                            <label className="block text-sm font-medium text-slate-600 dark:text-slate-400 mb-1.5">Why are you a good fit?</label>
                                             <textarea 
                                                 rows={4}
                                                 name="coverLetter"
                                                 value={formData.coverLetter}
                                                 onChange={handleInputChange}
-                                                className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:border-cyan-500 outline-none resize-none custom-scrollbar"
+                                                className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-4 py-3 text-slate-900 dark:text-white focus:border-cyan-500 outline-none resize-none custom-scrollbar"
                                                 placeholder="Tell us about your experience and motivation..."
                                             />
                                         </div>
                                     </form>
                                 </div>
 
-                                <div className="p-6 border-t border-slate-800 bg-[#0F172A] rounded-b-3xl flex justify-end gap-3">
+                                <div className="p-6 border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-[#0F172A] rounded-b-3xl flex justify-end gap-3">
                                     <button 
                                         onClick={closeApplyModal}
-                                        className="px-6 py-3 rounded-xl border border-slate-700 text-slate-300 font-bold hover:bg-slate-800 transition-colors"
+                                        className="px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 font-bold hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
                                     >
                                         Cancel
                                     </button>

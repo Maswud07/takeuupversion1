@@ -31,27 +31,27 @@ export const Newsletter = () => {
     };
 
     return (
-        <section className="relative z-10 py-24 bg-slate-950 overflow-hidden">
-            {/* Background Glows for section */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-900/10 blur-[120px] rounded-full pointer-events-none" />
+        <section className="relative z-10 py-24 bg-slate-50 dark:bg-slate-950 overflow-hidden transition-colors duration-500">
+            {/* Background Glows for section - Light mode friendly */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-blue-100 dark:bg-blue-900/10 blur-[120px] rounded-full pointer-events-none opacity-50 dark:opacity-100" />
             
             <div className="max-w-5xl mx-auto px-4 relative z-10">
                 
                 {/* Header Card */}
-                <div className="bg-slate-900/50 backdrop-blur-md border border-slate-800 rounded-[2.5rem] p-10 md:p-16 text-center mb-8 relative overflow-hidden">
-                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-800/20 to-transparent pointer-events-none" />
+                <div className="bg-white dark:bg-slate-900/50 backdrop-blur-md border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-10 md:p-16 text-center mb-8 relative overflow-hidden shadow-xl dark:shadow-none transition-all">
+                     <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-slate-50/50 to-transparent dark:from-slate-800/20 pointer-events-none" />
                      
-                     <h2 className="text-4xl md:text-6xl font-extrabold text-white mb-6 tracking-tight relative z-10">
+                     <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight relative z-10">
                         Stay Updated! Customize Your <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Newsletter</span>
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-700 to-slate-400 dark:from-white dark:to-slate-400">Newsletter</span>
                      </h2>
-                     <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed relative z-10">
+                     <p className="text-slate-600 dark:text-slate-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed relative z-10">
                         Get personalized news, tips, and updates delivered straight to your inbox. Select your interests below to get started.
                      </p>
                 </div>
 
                 {/* Form Card with Cosmic Background */}
-                <div className="relative rounded-[2.5rem] p-8 md:p-14 shadow-2xl overflow-hidden border border-slate-700/50 group">
+                <div className="relative rounded-[2.5rem] p-8 md:p-14 shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700/50 group bg-white dark:bg-transparent transition-colors">
                     
                     {/* The Cosmic Background Layer */}
                     <CosmicBackground />
@@ -59,34 +59,34 @@ export const Newsletter = () => {
                     <div className="max-w-2xl mx-auto relative z-10">
                         {subscribed ? (
                             <div className="text-center py-10 animate-in zoom-in duration-300">
-                                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg shadow-green-500/30">
                                     <Check size={40} className="text-white" />
                                 </div>
-                                <h3 className="text-2xl font-bold text-white mb-2">Subscribed Successfully!</h3>
-                                <p className="text-slate-300">Keep an eye on your inbox for the latest updates.</p>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">Subscribed Successfully!</h3>
+                                <p className="text-slate-600 dark:text-slate-300">Keep an eye on your inbox for the latest updates.</p>
                             </div>
                         ) : (
                             <>
                                 {/* Email Input */}
                                 <div className="mb-12">
-                                    <label className="block text-center text-slate-300 font-medium mb-4">Email Address</label>
+                                    <label className="block text-center text-slate-700 dark:text-slate-300 font-medium mb-4">Email Address</label>
                                     <div className="relative group">
                                         <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none">
-                                            <Mail className="h-6 w-6 text-slate-500 group-focus-within:text-cyan-400 transition-colors" />
+                                            <Mail className="h-6 w-6 text-slate-400 dark:text-slate-500 group-focus-within:text-cyan-500 dark:group-focus-within:text-cyan-400 transition-colors" />
                                         </div>
                                         <input 
                                             type="email" 
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
                                             placeholder="Enter your email address" 
-                                            className="block w-full pl-16 pr-6 py-5 bg-slate-950/60 backdrop-blur-sm border border-slate-700 rounded-2xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-lg shadow-inner"
+                                            className="block w-full pl-16 pr-6 py-5 bg-slate-50 dark:bg-slate-950/60 backdrop-blur-sm border border-slate-200 dark:border-slate-700 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all text-lg shadow-inner"
                                         />
                                     </div>
                                 </div>
 
                                 {/* Interests Selection */}
                                 <div className="mb-12 text-center">
-                                    <h3 className="text-xl font-bold text-white mb-8">Customize Your Feed</h3>
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8">Customize Your Feed</h3>
                                     <div className="flex flex-wrap justify-center gap-4">
                                         {interests.map((interest) => {
                                             const isSelected = selectedInterests.includes(interest.label);
@@ -97,7 +97,7 @@ export const Newsletter = () => {
                                                     className={`group relative px-6 py-3 rounded-full text-sm md:text-base font-semibold transition-all duration-300 flex items-center gap-2 border ${
                                                         isSelected 
                                                         ? 'border-transparent text-white transform scale-105' 
-                                                        : 'bg-slate-800/40 border-slate-600 text-slate-300 hover:border-slate-400 hover:text-slate-200 backdrop-blur-sm'
+                                                        : 'bg-slate-100 dark:bg-slate-800/40 border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:border-slate-300 dark:hover:border-slate-400 hover:text-slate-900 dark:hover:text-slate-200 backdrop-blur-sm'
                                                     }`}
                                                 >
                                                     {/* Gradient Background for Selected State */}
@@ -114,7 +114,7 @@ export const Newsletter = () => {
                                 </div>
 
                                 {/* Subscribe Button */}
-                                <button onClick={handleSubscribe} className="w-full py-5 bg-cyan-400 hover:bg-cyan-300 text-slate-900 font-extrabold rounded-2xl text-xl shadow-[0_0_30px_rgba(34,211,238,0.4)] hover:shadow-[0_0_50px_rgba(34,211,238,0.6)] transition-all transform hover:-translate-y-1 active:scale-[0.99] flex items-center justify-center gap-3">
+                                <button onClick={handleSubscribe} className="w-full py-5 bg-cyan-500 hover:bg-cyan-400 text-white font-extrabold rounded-2xl text-xl shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:shadow-[0_0_50px_rgba(6,182,212,0.5)] transition-all transform hover:-translate-y-1 active:scale-[0.99] flex items-center justify-center gap-3">
                                     Subscribe Now <Sparkles size={24} className="animate-pulse" />
                                 </button>
                             </>
@@ -129,11 +129,11 @@ export const Newsletter = () => {
 
 const CosmicBackground = () => (
   <div className="absolute inset-0 z-0 pointer-events-none select-none">
-    {/* Deep Space Gradient Base */}
-    <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a] via-[#1e1b4b] to-[#0f172a]" />
+    {/* Deep Space Gradient Base for Dark Mode, Light Gradient for Light Mode */}
+    <div className="absolute inset-0 bg-gradient-to-b from-white via-slate-50 to-white dark:from-[#0f172a] dark:via-[#1e1b4b] dark:to-[#0f172a] transition-colors duration-500" />
     
-    {/* Animated Stars */}
-    <div className="absolute inset-0">
+    {/* Animated Stars - Only visible in dark mode */}
+    <div className="absolute inset-0 opacity-0 dark:opacity-100 transition-opacity duration-500">
         {[...Array(40)].map((_, i) => (
             <div
                 key={i}
@@ -150,12 +150,12 @@ const CosmicBackground = () => (
         ))}
     </div>
 
-    {/* Dynamic Nebula Effects - Fixed Colors for Newsletter to match Blue/Purple theme */}
-    <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-[100px] opacity-20 animate-pulse bg-cyan-600" />
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] opacity-10 bg-purple-600 mix-blend-screen" />
-    <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full blur-[80px] opacity-20 animate-pulse delay-1000 bg-blue-600" />
+    {/* Dynamic Nebula Effects - Adjusted visibility for light mode */}
+    <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-[100px] opacity-10 dark:opacity-20 animate-pulse bg-cyan-400 dark:bg-cyan-600 mix-blend-multiply dark:mix-blend-screen" />
+    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] opacity-5 dark:opacity-10 bg-purple-400 dark:bg-purple-600 mix-blend-multiply dark:mix-blend-screen" />
+    <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full blur-[80px] opacity-10 dark:opacity-20 animate-pulse delay-1000 bg-blue-400 dark:bg-blue-600 mix-blend-multiply dark:mix-blend-screen" />
 
-    {/* Subtle Grid Overlay for Tech feel */}
+    {/* Subtle Grid Overlay */}
     <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]" />
 
     {/* Keyframes Injection for Twinkle Animation */}

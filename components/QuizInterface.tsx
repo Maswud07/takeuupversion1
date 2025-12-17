@@ -337,25 +337,25 @@ export const QuizInterface = () => {
   // --- LIMIT REACHED SCREEN ---
   if (limitReached && selectedCategory) {
       return (
-          <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center p-4">
-              <div className="bg-slate-900 border border-slate-700 rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full text-center relative overflow-hidden shadow-2xl animate-in zoom-in-95">
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex flex-col items-center justify-center p-4 transition-colors">
+              <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-[2.5rem] p-8 md:p-12 max-w-lg w-full text-center relative overflow-hidden shadow-2xl animate-in zoom-in-95">
                   <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none" />
                   
-                  <div className="w-20 h-20 bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 relative">
-                      <Lock size={40} className="text-red-400" />
+                  <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 relative">
+                      <Lock size={40} className="text-red-500 dark:text-red-400" />
                       <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">3/3</div>
                   </div>
                   
-                  <h2 className="text-3xl font-bold text-white mb-3">Daily Limit Reached</h2>
-                  <p className="text-slate-400 mb-8">
-                      You've completed your <span className="text-white font-bold">3 free quizzes</span> for today. Upgrade to Premium for unlimited practice and 30 questions per quiz.
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-3">Daily Limit Reached</h2>
+                  <p className="text-slate-600 dark:text-slate-400 mb-8">
+                      You've completed your <span className="text-slate-900 dark:text-white font-bold">3 free quizzes</span> for today. Upgrade to Premium for unlimited practice and 30 questions per quiz.
                   </p>
 
-                  <Link to="/pricing" className="block w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-slate-900 font-bold rounded-xl shadow-lg hover:shadow-orange-500/20 transition-all transform hover:-translate-y-1 mb-4 flex items-center justify-center gap-2">
+                  <Link to="/pricing" className="block w-full py-4 bg-gradient-to-r from-yellow-500 to-orange-500 text-white font-bold rounded-xl shadow-lg hover:shadow-orange-500/20 transition-all transform hover:-translate-y-1 mb-4 flex items-center justify-center gap-2">
                       <Crown size={20} /> Upgrade to Premium
                   </Link>
                   
-                  <button onClick={() => { setSelectedCategory(null); setLimitReached(false); }} className="text-slate-500 hover:text-white font-medium text-sm">
+                  <button onClick={() => { setSelectedCategory(null); setLimitReached(false); }} className="text-slate-500 hover:text-slate-900 dark:hover:text-white font-medium text-sm">
                       Back to Dashboard
                   </button>
               </div>
@@ -366,22 +366,22 @@ export const QuizInterface = () => {
   // --- CATEGORY SELECTION SCREEN ---
   if (!selectedCategory) {
       return (
-          <div className="min-h-screen bg-slate-950 py-12 px-4 flex flex-col items-center">
+          <div className="min-h-screen bg-slate-50 dark:bg-slate-950 py-12 px-4 flex flex-col items-center transition-colors">
               <div className="text-center mb-12 animate-in fade-in slide-in-from-top-4">
-                  <h1 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                  <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-4">
                       Select Quiz Category
                   </h1>
-                  <p className="text-slate-400 text-lg mb-4">Choose your preparation path to start the challenge.</p>
+                  <p className="text-slate-600 dark:text-slate-400 text-lg mb-4">Choose your preparation path to start the challenge.</p>
                   
                   {userPlan === 'free' && (
-                      <div className="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 rounded-full px-4 py-1.5 text-sm font-medium text-slate-300">
+                      <div className="inline-flex items-center gap-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full px-4 py-1.5 text-sm font-medium text-slate-600 dark:text-slate-300 shadow-sm">
                           <span>Daily Attempts:</span>
                           <div className="flex gap-1">
                               {[1, 2, 3].map(i => (
                                   <div key={i} className={`w-2.5 h-2.5 rounded-full ${i <= dailyAttempts ? 'bg-red-500' : 'bg-green-500'}`} />
                               ))}
                           </div>
-                          <span className={dailyAttempts >= 3 ? "text-red-400" : "text-green-400"}>
+                          <span className={dailyAttempts >= 3 ? "text-red-500 dark:text-red-400" : "text-green-600 dark:text-green-400"}>
                               {3 - dailyAttempts} left
                           </span>
                       </div>
@@ -393,21 +393,21 @@ export const QuizInterface = () => {
                       <button
                           key={cat.id}
                           onClick={() => setSelectedCategory(cat.id)}
-                          className="group relative bg-slate-900 border border-slate-800 rounded-3xl p-8 hover:border-slate-600 transition-all duration-300 hover:-translate-y-2 text-left overflow-hidden shadow-xl"
+                          className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 hover:-translate-y-2 text-left overflow-hidden shadow-lg dark:shadow-xl"
                           style={{ animationDelay: `${idx * 100}ms` }}
                       >
-                          <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
+                          <div className={`absolute inset-0 bg-gradient-to-br ${cat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
                           <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${cat.color} flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
                               {cat.icon}
                           </div>
-                          <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">{cat.label}</h3>
-                          <p className="text-slate-400 text-sm">{cat.desc}</p>
+                          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">{cat.label}</h3>
+                          <p className="text-slate-600 dark:text-slate-400 text-sm">{cat.desc}</p>
                           <div className="mt-6 flex items-center justify-between">
-                              <span className="text-sm font-bold text-slate-500 group-hover:text-white transition-colors flex items-center gap-2">
+                              <span className="text-sm font-bold text-slate-500 group-hover:text-slate-900 dark:group-hover:text-white transition-colors flex items-center gap-2">
                                   Start Quiz <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                               </span>
                               {userPlan === 'free' && (
-                                  <span className="text-[10px] bg-slate-800 text-slate-400 px-2 py-1 rounded border border-slate-700">10 Qs</span>
+                                  <span className="text-[10px] bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">10 Qs</span>
                               )}
                           </div>
                       </button>
@@ -434,55 +434,55 @@ export const QuizInterface = () => {
       };
 
       return (
-        <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center p-4 animate-in zoom-in-95 duration-500 pb-16 bg-slate-950">
-            <div className="bg-slate-900 p-8 rounded-[2rem] border border-slate-800 max-w-3xl w-full text-center shadow-2xl relative overflow-hidden">
+        <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center p-4 animate-in zoom-in-95 duration-500 pb-16 bg-slate-50 dark:bg-slate-950 transition-colors">
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-800 max-w-3xl w-full text-center shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
                 
                 <div className="relative mb-8 mt-4">
-                    <div className="w-40 h-40 mx-auto rounded-full border-8 border-slate-800 flex items-center justify-center relative bg-slate-900 shadow-[0_0_40px_rgba(6,182,212,0.1)]">
+                    <div className="w-40 h-40 mx-auto rounded-full border-8 border-slate-100 dark:border-slate-800 flex items-center justify-center relative bg-white dark:bg-slate-900 shadow-[0_0_40px_rgba(6,182,212,0.1)]">
                         <svg className="absolute inset-0 w-full h-full transform -rotate-90 drop-shadow-lg">
-                            <circle cx="50%" cy="50%" r="70" fill="transparent" stroke="currentColor" strokeWidth="8" className="text-slate-800" />
+                            <circle cx="50%" cy="50%" r="70" fill="transparent" stroke="currentColor" strokeWidth="8" className="text-slate-200 dark:text-slate-800" />
                             <circle cx="50%" cy="50%" r="70" fill="transparent" stroke="currentColor" strokeWidth="8" strokeDasharray={440} strokeDashoffset={440 - (440 * accuracy) / 100} className={`${score >= questions.length * 0.8 ? 'text-green-500' : score >= questions.length * 0.5 ? 'text-yellow-500' : 'text-red-500'} transition-all duration-1000 ease-out`} strokeLinecap="round" />
                         </svg>
                         <div className="flex flex-col items-center z-10">
-                            <span className="text-4xl font-extrabold text-white">{score}<span className="text-xl text-slate-500">/{questions.length}</span></span>
-                            <span className={`text-sm font-bold uppercase tracking-wider ${score >= questions.length * 0.8 ? 'text-green-400' : 'text-slate-400'}`}>
+                            <span className="text-4xl font-extrabold text-slate-900 dark:text-white">{score}<span className="text-xl text-slate-400 dark:text-slate-500">/{questions.length}</span></span>
+                            <span className={`text-sm font-bold uppercase tracking-wider ${score >= questions.length * 0.8 ? 'text-green-600 dark:text-green-400' : 'text-slate-500 dark:text-slate-400'}`}>
                                 {score >= questions.length * 0.8 ? t('quiz_excellent') : t('quiz_completed')}
                             </span>
                         </div>
                     </div>
                 </div>
 
-                <h2 className="text-2xl font-bold text-white mb-2">{selectedCategory} Results</h2>
-                <p className="text-slate-400 text-sm mb-8 max-w-md mx-auto">{getFeedback()}</p>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">{selectedCategory} Results</h2>
+                <p className="text-slate-600 dark:text-slate-400 text-sm mb-8 max-w-md mx-auto">{getFeedback()}</p>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                    <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 flex flex-col items-center">
-                        <Trophy size={20} className="text-yellow-400 mb-2" />
-                        <span className="text-2xl font-bold text-white">#{rank}</span>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center">
+                        <Trophy size={20} className="text-yellow-500 dark:text-yellow-400 mb-2" />
+                        <span className="text-2xl font-bold text-slate-900 dark:text-white">#{rank}</span>
                         <span className="text-xs text-slate-500 uppercase">Est. Rank</span>
                     </div>
-                    <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 flex flex-col items-center">
-                        <Target size={20} className="text-cyan-400 mb-2" />
-                        <span className="text-2xl font-bold text-white">{accuracy}%</span>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center">
+                        <Target size={20} className="text-cyan-500 dark:text-cyan-400 mb-2" />
+                        <span className="text-2xl font-bold text-slate-900 dark:text-white">{accuracy}%</span>
                         <span className="text-xs text-slate-500 uppercase">Accuracy</span>
                     </div>
-                    <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 flex flex-col items-center">
-                        <Clock size={20} className="text-purple-400 mb-2" />
-                        <span className="text-2xl font-bold text-white">{timeTakenFmt}</span>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center">
+                        <Clock size={20} className="text-purple-500 dark:text-purple-400 mb-2" />
+                        <span className="text-2xl font-bold text-slate-900 dark:text-white">{timeTakenFmt}</span>
                         <span className="text-xs text-slate-500 uppercase">Time</span>
                     </div>
-                    <div className="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 flex flex-col items-center">
-                        <Zap size={20} className="text-orange-400 mb-2" />
-                        <span className="text-2xl font-bold text-white">+{pointsEarned}</span>
+                    <div className="bg-slate-50 dark:bg-slate-800/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 flex flex-col items-center">
+                        <Zap size={20} className="text-orange-500 dark:text-orange-400 mb-2" />
+                        <span className="text-2xl font-bold text-slate-900 dark:text-white">+{pointsEarned}</span>
                         <span className="text-xs text-slate-500 uppercase">Points</span>
                     </div>
                 </div>
 
                 {/* --- DETAILED REVIEW SECTION --- */}
                 <div className="mt-8 mb-8 text-left">
-                    <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                        <BookOpen size={20} className="text-cyan-400" /> Detailed Review
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                        <BookOpen size={20} className="text-cyan-600 dark:text-cyan-400" /> Detailed Review
                     </h3>
                     <div className="space-y-6 max-h-[500px] overflow-y-auto custom-scrollbar pr-2">
                         {questions.map((q, index) => {
@@ -490,21 +490,21 @@ export const QuizInterface = () => {
                             const isCorrect = userAnswer === q.correctOptionId;
                             
                             return (
-                                <div key={q.id} className={`p-6 rounded-2xl border relative overflow-hidden ${isCorrect ? 'bg-slate-900 border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.05)]' : 'bg-slate-900 border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.05)]'}`}>
+                                <div key={q.id} className={`p-6 rounded-2xl border relative overflow-hidden ${isCorrect ? 'bg-white dark:bg-slate-900 border-green-500/30 shadow-[0_0_15px_rgba(34,197,94,0.05)]' : 'bg-white dark:bg-slate-900 border-red-500/30 shadow-[0_0_15px_rgba(239,68,68,0.05)]'}`}>
                                     <div className="flex gap-4">
-                                        <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm ${isCorrect ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400'}`}>
+                                        <span className={`flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center font-bold text-sm ${isCorrect ? 'bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400' : 'bg-red-100 dark:bg-red-500/20 text-red-600 dark:text-red-400'}`}>
                                             {index + 1}
                                         </span>
                                         <div className="flex-1">
-                                            <p className="text-white font-medium mb-4 leading-relaxed">{q.text}</p>
+                                            <p className="text-slate-900 dark:text-white font-medium mb-4 leading-relaxed">{q.text}</p>
                                             <div className="space-y-2.5">
                                                 {q.options.map(opt => {
                                                     const isSelected = userAnswer === opt.id;
                                                     const isOpCorrect = q.correctOptionId === opt.id;
-                                                    let style = "bg-slate-800 border-slate-700 text-slate-400";
+                                                    let style = "bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400";
                                                     
-                                                    if (isOpCorrect) style = "bg-green-500/10 border-green-500/50 text-green-400 font-bold shadow-[0_0_10px_rgba(34,197,94,0.1)]";
-                                                    else if (isSelected && !isOpCorrect) style = "bg-red-500/10 border-red-500/50 text-red-400 line-through opacity-80";
+                                                    if (isOpCorrect) style = "bg-green-50 dark:bg-green-500/10 border-green-500/50 text-green-700 dark:text-green-400 font-bold shadow-sm";
+                                                    else if (isSelected && !isOpCorrect) style = "bg-red-50 dark:bg-red-500/10 border-red-500/50 text-red-700 dark:text-red-400 line-through opacity-80";
                                                     
                                                     return (
                                                         <div key={opt.id} className={`p-3 rounded-xl border text-sm flex items-center justify-between transition-colors ${style}`}>
@@ -515,9 +515,9 @@ export const QuizInterface = () => {
                                                     )
                                                 })}
                                             </div>
-                                            <div className="mt-4 p-4 bg-[#0B0F19] rounded-xl text-sm border border-slate-800">
-                                                <span className="font-bold text-cyan-400 flex items-center gap-2 mb-1"><AlertCircle size={14} /> Explanation:</span> 
-                                                <span className="text-slate-400 leading-relaxed">{q.explanation}</span>
+                                            <div className="mt-4 p-4 bg-slate-50 dark:bg-[#0B0F19] rounded-xl text-sm border border-slate-200 dark:border-slate-800">
+                                                <span className="font-bold text-cyan-600 dark:text-cyan-400 flex items-center gap-2 mb-1"><AlertCircle size={14} /> Explanation:</span> 
+                                                <span className="text-slate-600 dark:text-slate-400 leading-relaxed">{q.explanation}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -528,10 +528,10 @@ export const QuizInterface = () => {
                 </div>
 
                 {userPlan === 'free' && (
-                    <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl flex items-center justify-between text-left">
+                    <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-500/30 rounded-xl flex items-center justify-between text-left">
                         <div>
-                            <h4 className="text-white font-bold text-sm mb-1">Want more practice?</h4>
-                            <p className="text-blue-200 text-xs">Premium users get 30 questions per quiz.</p>
+                            <h4 className="text-blue-900 dark:text-white font-bold text-sm mb-1">Want more practice?</h4>
+                            <p className="text-blue-600 dark:text-blue-200 text-xs">Premium users get 30 questions per quiz.</p>
                         </div>
                         <Link to="/pricing" className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold rounded-lg transition-colors">
                             Upgrade
@@ -539,11 +539,11 @@ export const QuizInterface = () => {
                     </div>
                 )}
 
-                <div className="flex flex-col sm:flex-row gap-3 sticky bottom-0 bg-slate-900 pt-4 border-t border-slate-800">
-                    <button onClick={handleRetry} className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-700">
+                <div className="flex flex-col sm:flex-row gap-3 sticky bottom-0 bg-white dark:bg-slate-900 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <button onClick={handleRetry} className="flex-1 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700">
                         <RefreshCcw size={18} /> Retry Quiz
                     </button>
-                    <button onClick={() => setSelectedCategory(null)} className="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-700">
+                    <button onClick={() => setSelectedCategory(null)} className="flex-1 py-3 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700">
                         Change Category
                     </button>
                     <Link to="/dashboard" className="flex-1 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(6,182,212,0.2)]">
@@ -559,39 +559,39 @@ export const QuizInterface = () => {
   const currentQ = questions[currentQIndex];
   const progress = ((currentQIndex + 1) / questions.length) * 100;
 
-  if (!currentQ) return <div className="text-white text-center mt-20">Loading Questions...</div>;
+  if (!currentQ) return <div className="text-slate-900 dark:text-white text-center mt-20">Loading Questions...</div>;
 
   return (
-    <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center p-4 bg-slate-950 text-white font-sans">
+    <div className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center p-4 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-white font-sans transition-colors">
       
       {/* Header Section */}
       <div className="w-full max-w-4xl mb-6">
-        <div className="bg-slate-900/80 backdrop-blur-xl rounded-2xl p-4 border border-slate-800 flex justify-between items-center shadow-lg">
+        <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-2xl p-4 border border-slate-200 dark:border-slate-800 flex justify-between items-center shadow-lg">
             <div className="flex items-center gap-3">
-                <button onClick={() => setSelectedCategory(null)} className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 text-slate-400 hover:text-white transition-colors">
+                <button onClick={() => setSelectedCategory(null)} className="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors">
                     <ChevronLeft size={20} />
                 </button>
                 <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20">
                     <span className="font-black text-white text-lg">T</span>
                 </div>
                 <div>
-                    <h1 className="font-bold text-lg text-slate-100 leading-tight flex items-center gap-2">
-                        {selectedCategory} Quiz <span className="text-xs bg-slate-800 px-2 py-0.5 rounded text-slate-400 font-normal border border-slate-700">{selectedSubject || currentQ.category}</span>
+                    <h1 className="font-bold text-lg text-slate-900 dark:text-slate-100 leading-tight flex items-center gap-2">
+                        {selectedCategory} Quiz <span className="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-slate-500 dark:text-slate-400 font-normal border border-slate-200 dark:border-slate-700">{selectedSubject || currentQ.category}</span>
                     </h1>
                 </div>
             </div>
-            <div className="flex items-center gap-2 bg-slate-950 px-4 py-2 rounded-full border border-slate-800">
-                <Clock size={18} className="text-cyan-400" />
+            <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-950 px-4 py-2 rounded-full border border-slate-200 dark:border-slate-800">
+                <Clock size={18} className="text-cyan-600 dark:text-cyan-400" />
                 <span className="font-mono font-bold text-lg">{formatTime(timer)}</span>
             </div>
         </div>
 
         <div className="mt-6 px-1">
-            <div className="flex justify-between text-sm font-medium text-slate-400 mb-2">
+            <div className="flex justify-between text-sm font-medium text-slate-500 dark:text-slate-400 mb-2">
                 <span>Question {currentQIndex + 1} of {questions.length}</span>
                 <span>{Math.round(progress)}% complete</span>
             </div>
-            <div className="h-2.5 w-full bg-slate-900 rounded-full overflow-hidden border border-slate-800/50">
+            <div className="h-2.5 w-full bg-slate-200 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-300 dark:border-slate-800/50">
                 <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500 shadow-[0_0_10px_rgba(6,182,212,0.5)] transition-all duration-500 ease-out rounded-full relative" style={{ width: `${progress}%` }}>
                     <div className="absolute inset-0 bg-white/20 animate-pulse" />
                 </div>
@@ -600,13 +600,13 @@ export const QuizInterface = () => {
       </div>
 
       {/* Main Card */}
-      <div className="w-full max-w-4xl bg-slate-900 rounded-[2.5rem] border border-slate-800 shadow-2xl overflow-hidden relative">
+      <div className="w-full max-w-4xl bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden relative transition-colors">
          <div className="p-8 md:p-12 relative z-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 leading-snug text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 leading-snug text-slate-900 dark:text-white">
                 {currentQ.text}
             </h2>
-            <p className="text-center text-slate-400 text-sm mb-10 font-medium">
-                Select the correct option. Difficulty: <span className={`capitalize ${currentQ.difficulty === 'hard' ? 'text-red-400' : currentQ.difficulty === 'medium' ? 'text-yellow-400' : 'text-green-400'}`}>{currentQ.difficulty}</span>
+            <p className="text-center text-slate-500 dark:text-slate-400 text-sm mb-10 font-medium">
+                Select the correct option. Difficulty: <span className={`capitalize ${currentQ.difficulty === 'hard' ? 'text-red-500 dark:text-red-400' : currentQ.difficulty === 'medium' ? 'text-yellow-500 dark:text-yellow-400' : 'text-green-500 dark:text-green-400'}`}>{currentQ.difficulty}</span>
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -615,26 +615,26 @@ export const QuizInterface = () => {
                     const isCorrect = opt.id === currentQ.correctOptionId;
                     const showResult = isSubmitted;
 
-                    let cardClass = "bg-[#161e2e] border-[#1e293b] hover:bg-[#1e293b] hover:border-slate-600";
-                    let textClass = "text-slate-300 group-hover:text-white";
-                    let letterBoxClass = "bg-slate-800 text-slate-400 group-hover:bg-slate-700 group-hover:text-white";
+                    let cardClass = "bg-white dark:bg-[#161e2e] border-slate-200 dark:border-[#1e293b] hover:bg-slate-50 dark:hover:bg-[#1e293b] hover:border-slate-300 dark:hover:border-slate-600";
+                    let textClass = "text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white";
+                    let letterBoxClass = "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-transparent group-hover:bg-slate-200 dark:group-hover:bg-slate-700 group-hover:text-slate-900 dark:group-hover:text-white";
 
                     if (showResult) {
                         if (isCorrect) {
-                            cardClass = "bg-emerald-950/30 border-emerald-500/50";
-                            textClass = "text-emerald-400 font-bold";
-                            letterBoxClass = "bg-emerald-500 text-emerald-950";
+                            cardClass = "bg-emerald-50 dark:bg-emerald-950/30 border-emerald-500 dark:border-emerald-500/50";
+                            textClass = "text-emerald-700 dark:text-emerald-400 font-bold";
+                            letterBoxClass = "bg-emerald-500 text-white dark:text-emerald-950";
                         } else if (isSelected && !isCorrect) {
-                            cardClass = "bg-red-950/30 border-red-500/50";
-                            textClass = "text-red-400 font-bold";
+                            cardClass = "bg-red-50 dark:bg-red-950/30 border-red-500 dark:border-red-500/50";
+                            textClass = "text-red-700 dark:text-red-400 font-bold";
                             letterBoxClass = "bg-red-500 text-white";
                         } else {
-                            cardClass = "bg-slate-900/50 border-slate-800 opacity-40";
+                            cardClass = "bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-800 opacity-40";
                         }
                     } else if (isSelected) {
-                        cardClass = "bg-cyan-950/40 border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.1)]";
-                        textClass = "text-cyan-400 font-bold";
-                        letterBoxClass = "bg-cyan-500 text-cyan-950";
+                        cardClass = "bg-cyan-50 dark:bg-cyan-950/40 border-cyan-500 shadow-[0_0_20px_rgba(6,182,212,0.1)]";
+                        textClass = "text-cyan-700 dark:text-cyan-400 font-bold";
+                        letterBoxClass = "bg-cyan-500 text-white dark:text-cyan-950";
                     }
 
                     return (
@@ -657,20 +657,20 @@ export const QuizInterface = () => {
 
       {isSubmitted && (
           <div className="w-full max-w-4xl mt-6 animate-in slide-in-from-bottom-8 fade-in duration-500">
-              <div className={`rounded-[2rem] p-6 md:px-8 md:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border backdrop-blur-xl relative overflow-hidden ${selectedOption === currentQ.correctOptionId ? 'bg-emerald-950/40 border-emerald-500/30 shadow-[0_0_40px_rgba(16,185,129,0.15)]' : 'bg-red-950/40 border-red-500/30 shadow-[0_0_40px_rgba(239,68,68,0.15)]'}`}>
+              <div className={`rounded-[2rem] p-6 md:px-8 md:py-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border backdrop-blur-xl relative overflow-hidden ${selectedOption === currentQ.correctOptionId ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500/30 shadow-[0_0_40px_rgba(16,185,129,0.15)]' : 'bg-red-50 dark:bg-red-950/40 border-red-500/30 shadow-[0_0_40px_rgba(239,68,68,0.15)]'}`}>
                   <div className={`absolute top-0 left-0 w-1 h-full ${selectedOption === currentQ.correctOptionId ? 'bg-emerald-500' : 'bg-red-500'}`} />
                   <div className="flex-1 relative z-10">
                       <div className="flex items-center gap-3 mb-2">
-                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${selectedOption === currentQ.correctOptionId ? 'bg-emerald-500 text-emerald-950' : 'bg-red-500 text-white'}`}>
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${selectedOption === currentQ.correctOptionId ? 'bg-emerald-500 text-white dark:text-emerald-950' : 'bg-red-500 text-white'}`}>
                               {selectedOption === currentQ.correctOptionId ? <CheckCircle2 size={18} strokeWidth={3} /> : <XCircle size={18} strokeWidth={3} />}
                           </div>
-                          <h3 className="text-xl font-black tracking-tight text-white">
+                          <h3 className={`text-xl font-black tracking-tight ${selectedOption === currentQ.correctOptionId ? 'text-emerald-800 dark:text-white' : 'text-red-800 dark:text-white'}`}>
                               {selectedOption === currentQ.correctOptionId ? 'Correct!' : 'Incorrect!'}
                           </h3>
                       </div>
-                      <p className="text-slate-300 leading-relaxed text-sm md:text-base font-medium">{currentQ.explanation}</p>
+                      <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-sm md:text-base font-medium">{currentQ.explanation}</p>
                   </div>
-                  <button onClick={handleNext} className="whitespace-nowrap px-8 py-3 bg-[#1e293b] hover:bg-[#334155] text-white font-bold rounded-xl border border-slate-600 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group relative z-10">
+                  <button onClick={handleNext} className="whitespace-nowrap px-8 py-3 bg-slate-800 hover:bg-slate-700 dark:bg-[#1e293b] dark:hover:bg-[#334155] text-white font-bold rounded-xl border border-slate-600 transition-all flex items-center gap-2 shadow-lg hover:shadow-xl active:scale-95 group relative z-10">
                       {currentQIndex === questions.length - 1 ? 'See Results' : 'Next Question'} <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
               </div>

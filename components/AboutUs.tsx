@@ -62,7 +62,7 @@ export const AboutUs = () => {
                     {/* Image Side */}
                     <div className="relative group">
                         <div className="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-[2.5rem] rotate-6 opacity-20 group-hover:rotate-3 transition-transform duration-500" />
-                        <div className="absolute inset-0 bg-slate-900 rounded-[2.5rem] -rotate-3 border border-white/10" />
+                        <div className="absolute inset-0 bg-white dark:bg-slate-900 rounded-[2.5rem] -rotate-3 border border-slate-200 dark:border-white/10" />
                         <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] border border-slate-200 dark:border-white/10 shadow-2xl">
                             {/* Founder Image Placeholder - Updated to a professional portrait style match */}
                             <img 
@@ -134,22 +134,26 @@ export const AboutUs = () => {
 
         {/* Join CTA */}
         <section className="py-24 px-4">
-            <div className="max-w-5xl mx-auto bg-slate-900 dark:bg-white rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
-                <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none" />
-                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-500 to-blue-500 opacity-20 blur-[100px] rounded-full pointer-events-none" />
+            <div className="max-w-5xl mx-auto bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[3rem] p-12 md:p-20 text-center relative overflow-hidden shadow-2xl transition-all duration-300 group">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03] dark:opacity-10 pointer-events-none" />
+                
+                {/* Gradient Blob - Adaptive */}
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 dark:from-cyan-500/10 dark:to-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+                <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-purple-500/20 to-pink-500/20 dark:from-purple-500/10 dark:to-pink-500/10 blur-[100px] rounded-full pointer-events-none" />
                 
                 <div className="relative z-10">
-                    <h2 className="text-4xl md:text-5xl font-black text-white dark:text-slate-900 mb-6">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-6 tracking-tight leading-tight">
                         Ready to Transform Your Future?
                     </h2>
-                    <p className="text-lg text-slate-300 dark:text-slate-600 max-w-2xl mx-auto mb-10">
+                    <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
                         Join the fastest growing student community in Bangladesh. Whether you are preparing for HSC, Admission, or Jobs - we have got you covered.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#/register" className="px-10 py-4 bg-cyan-500 text-slate-900 dark:bg-slate-900 dark:text-white font-bold rounded-2xl hover:bg-cyan-400 dark:hover:bg-slate-800 transition-all transform hover:-translate-y-1 shadow-lg">
+                        <a href="#/register" className="px-10 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl transition-all transform hover:-translate-y-1 shadow-lg shadow-cyan-500/30">
                             Get Started Free
                         </a>
-                        <a href="#/pricing" className="px-10 py-4 bg-transparent border-2 border-white/20 dark:border-slate-900/20 text-white dark:text-slate-900 font-bold rounded-2xl hover:bg-white/10 dark:hover:bg-slate-900/5 transition-all">
+                        <a href="#/pricing" className="px-10 py-4 bg-white dark:bg-transparent border-2 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-white font-bold rounded-2xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all hover:border-slate-300 dark:hover:border-slate-600">
                             View Plans
                         </a>
                     </div>

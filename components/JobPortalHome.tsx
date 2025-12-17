@@ -14,12 +14,10 @@ const COMPANIES = [
 ];
 
 const JobHeroBackground = () => {
-    // Modern Neon Palette
     const colors = ['#8b5cf6', '#3b82f6', '#ec4899', '#10b981', '#f59e0b'];
 
     return (
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none bg-slate-50 dark:bg-[#020617] transition-colors duration-500">
-            {/* Base Grid */}
             <div 
                 className="absolute inset-0 opacity-[0.05] dark:opacity-[0.03]"
                 style={{
@@ -29,11 +27,9 @@ const JobHeroBackground = () => {
                 }}
             />
             
-            {/* Dynamic Glowing Dots */}
-            {/* We generate 40 random dots with individual animations and glow effects */}
             {[...Array(40)].map((_, i) => {
                 const color = colors[Math.floor(Math.random() * colors.length)];
-                const size = Math.random() * 4 + 2; // 2px to 6px
+                const size = Math.random() * 4 + 2; 
                 
                 return (
                     <div
@@ -45,7 +41,7 @@ const JobHeroBackground = () => {
                             width: `${size}px`,
                             height: `${size}px`,
                             backgroundColor: color,
-                            boxShadow: `0 0 ${size * 3}px ${color}, 0 0 ${size * 6}px ${color}`, // Neon Glow
+                            boxShadow: `0 0 ${size * 3}px ${color}, 0 0 ${size * 6}px ${color}`, 
                             opacity: Math.random() * 0.6 + 0.2,
                             animation: `twinkle ${Math.random() * 4 + 2}s infinite ease-in-out ${Math.random() * 2}s`
                         }}
@@ -53,7 +49,6 @@ const JobHeroBackground = () => {
                 );
             })}
 
-            {/* Dynamic Ambient Glows (Blobs) */}
             <div className="absolute top-[-20%] left-[20%] w-[500px] h-[500px] bg-violet-300/20 dark:bg-violet-600/20 rounded-full blur-[120px] animate-blob mix-blend-multiply dark:mix-blend-screen" />
             <div className="absolute bottom-[-20%] right-[20%] w-[500px] h-[500px] bg-blue-300/20 dark:bg-blue-600/20 rounded-full blur-[120px] animate-blob animation-delay-2000 mix-blend-multiply dark:mix-blend-screen" />
             <div className="absolute top-[40%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-cyan-300/20 dark:bg-cyan-500/10 rounded-full blur-[100px] animate-blob animation-delay-4000 mix-blend-multiply dark:mix-blend-screen" />
@@ -66,12 +61,12 @@ export const JobPortalHome = () => {
   const { t } = useLanguage();
 
   const CATEGORIES = [
-    { name: t('job_cat_engineering'), icon: <Code size={24} />, jobs: '120+' },
-    { name: t('job_cat_marketing'), icon: <Megaphone size={24} />, jobs: '85+' },
-    { name: t('job_cat_design'), icon: <Palette size={24} />, jobs: '40+' },
-    { name: t('job_cat_finance'), icon: <LineChart size={24} />, jobs: '32+' },
-    { name: t('job_cat_education'), icon: <GraduationCap size={24} />, jobs: '55+' },
-    { name: t('job_cat_management'), icon: <Briefcase size={24} />, jobs: '20+' },
+    { name: t('job_cat_engineering'), icon: <Code size={24} />, jobs: '120+', bg: 'bg-blue-50 dark:bg-blue-900/10', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-100 dark:border-blue-900/30' },
+    { name: t('job_cat_marketing'), icon: <Megaphone size={24} />, jobs: '85+', bg: 'bg-pink-50 dark:bg-pink-900/10', text: 'text-pink-600 dark:text-pink-400', border: 'border-pink-100 dark:border-pink-900/30' },
+    { name: t('job_cat_design'), icon: <Palette size={24} />, jobs: '40+', bg: 'bg-purple-50 dark:bg-purple-900/10', text: 'text-purple-600 dark:text-purple-400', border: 'border-purple-100 dark:border-purple-900/30' },
+    { name: t('job_cat_finance'), icon: <LineChart size={24} />, jobs: '32+', bg: 'bg-emerald-50 dark:bg-emerald-900/10', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-100 dark:border-emerald-900/30' },
+    { name: t('job_cat_education'), icon: <GraduationCap size={24} />, jobs: '55+', bg: 'bg-yellow-50 dark:bg-yellow-900/10', text: 'text-yellow-600 dark:text-yellow-400', border: 'border-yellow-100 dark:border-yellow-900/30' },
+    { name: t('job_cat_management'), icon: <Briefcase size={24} />, jobs: '20+', bg: 'bg-orange-50 dark:bg-orange-900/10', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-100 dark:border-orange-900/30' },
   ];
 
   const handleSearch = (e: React.FormEvent) => {
@@ -278,13 +273,13 @@ export const JobPortalHome = () => {
                   <Link 
                     to="/jobs/search" 
                     key={i}
-                    className="bg-white dark:bg-[#111111] border border-slate-200 dark:border-white/5 rounded-2xl p-6 flex flex-col items-center justify-center text-center hover:bg-slate-50 dark:hover:bg-[#1A1A1A] hover:border-slate-300 dark:hover:border-white/10 hover:-translate-y-1 transition-all duration-300 group shadow-sm dark:shadow-none"
+                    className={`rounded-2xl p-6 flex flex-col items-center justify-center text-center transition-all duration-300 group shadow-sm hover:shadow-lg hover:-translate-y-1 border ${cat.bg} ${cat.border} dark:bg-opacity-10 dark:border-opacity-10`}
                   >
-                      <div className="mb-4 text-slate-500 dark:text-slate-600 group-hover:text-slate-900 dark:group-hover:text-white transition-colors group-hover:scale-110 duration-300">
+                      <div className={`mb-4 ${cat.text} group-hover:scale-110 duration-300 transform`}>
                           {cat.icon}
                       </div>
                       <h3 className="font-bold text-slate-900 dark:text-white text-sm mb-1">{cat.name}</h3>
-                      <p className="text-slate-500 dark:text-slate-600 text-xs group-hover:text-slate-700 dark:group-hover:text-slate-400 transition-colors">{cat.jobs} Jobs</p>
+                      <p className="text-slate-500 dark:text-slate-400 text-xs font-medium">{cat.jobs} Jobs</p>
                   </Link>
               ))}
           </div>

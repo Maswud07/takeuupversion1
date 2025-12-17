@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Trophy, User, Menu, X, LogOut, Sparkles, UserCircle, Briefcase, ChevronDown, FileText, Users, ShoppingBag, Rocket, Moon, Sun, Info, Facebook, Twitter, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Trophy, User, Menu, X, LogOut, Sparkles, UserCircle, Briefcase, ChevronDown, FileText, Users, ShoppingBag, Rocket, Moon, Sun, Info, Facebook, Twitter, Instagram, Linkedin, Youtube, Heart, ArrowRight } from 'lucide-react';
 import { ProfileModal } from './ProfileModal';
 import { useLanguage } from '../LanguageContext';
 import { useTheme } from '../ThemeContext';
@@ -407,37 +407,85 @@ export const Layout = ({ children, isAuthenticated, onLogout }: LayoutProps) => 
     const location = useLocation();
 
     return (
-        <div className={`min-h-screen transition-colors duration-300 ${theme === 'dark' ? 'dark bg-[#020617] text-white' : 'bg-slate-50 text-slate-900'}`}>
+        <div className={`min-h-screen transition-colors duration-300 flex flex-col ${theme === 'dark' ? 'dark bg-[#020617] text-white' : 'bg-slate-50 text-slate-900'}`}>
             <Navbar isAuthenticated={isAuthenticated} onLogout={onLogout} />
-            <main className="pt-20 min-h-[calc(100vh-80px)]">
+            <main className="pt-20 flex-grow min-h-[calc(100vh-80px)]">
                 <div key={location.pathname} className="page-animate">
                     {children}
                 </div>
             </main>
-            <footer className="bg-white dark:bg-black border-t border-slate-200 dark:border-white/10 py-12 transition-colors duration-500 mt-auto">
-                <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-                    <div className="text-center md:text-left">
-                        <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-                            <div className="w-8 h-8 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold">T</div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white">TakeUUp</h3>
+            
+            {/* Enhanced Footer */}
+            <footer className="relative bg-slate-50 dark:bg-black border-t border-slate-200 dark:border-white/10 pt-16 pb-8 transition-colors duration-500 mt-auto">
+                {/* Decorative Top Border */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500" />
+                
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                        {/* Brand Column */}
+                        <div className="md:col-span-1">
+                            <div className="flex items-center gap-2 mb-4">
+                                <div className="w-10 h-10 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">T</div>
+                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">TakeUUp</h3>
+                            </div>
+                            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                Empowering the next generation of leaders in Bangladesh through accessible, high-quality education and career tools.
+                            </p>
+                            <div className="flex gap-4">
+                                <a href="#" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all"><Facebook size={16} /></a>
+                                <a href="#" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-sky-500 hover:text-white dark:hover:bg-sky-500 dark:hover:text-white transition-all"><Twitter size={16} /></a>
+                                <a href="#" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-pink-600 hover:text-white dark:hover:bg-pink-600 dark:hover:text-white transition-all"><Instagram size={16} /></a>
+                                <a href="#" className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-blue-700 hover:text-white dark:hover:bg-blue-700 dark:hover:text-white transition-all"><Linkedin size={16} /></a>
+                            </div>
                         </div>
-                        <p className="text-slate-500 dark:text-slate-400 text-sm">Empowering students across Bangladesh.</p>
-                        <Link to="/about" className="text-cyan-500 dark:text-cyan-400 text-sm font-bold hover:underline mt-2 inline-block">
-                            About Us
-                        </Link>
+
+                        {/* Links Column 1 */}
+                        <div>
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Platform</h4>
+                            <ul className="space-y-3 text-sm text-slate-500 dark:text-slate-400">
+                                <li><Link to="/quiz" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Daily Quiz</Link></li>
+                                <li><Link to="/jobs" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Job Portal</Link></li>
+                                <li><Link to="/leaderboard" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Leaderboard</Link></li>
+                                <li><Link to="/mentors" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Find a Mentor</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Links Column 2 */}
+                        <div>
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Resources</h4>
+                            <ul className="space-y-3 text-sm text-slate-500 dark:text-slate-400">
+                                <li><Link to="/blog" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Blog</Link></li>
+                                <li><Link to="/store" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Book Store</Link></li>
+                                <li><Link to="/pricing" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">Pricing Plans</Link></li>
+                                <li><Link to="/about" className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors">About Us</Link></li>
+                            </ul>
+                        </div>
+
+                        {/* Newsletter Column */}
+                        <div>
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-6">Stay Updated</h4>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">Get the latest exam dates and job circulars right in your inbox.</p>
+                            <div className="flex gap-2">
+                                <input type="email" placeholder="Email address" className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-white text-sm rounded-lg px-3 py-2 w-full focus:outline-none focus:border-cyan-500" />
+                                <button className="bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg px-3 py-2 transition-colors">
+                                    <ArrowRight size={16} />
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div className="flex gap-4">
-                        <a href="#" className="text-slate-400 hover:text-cyan-500 transition-colors"><Facebook size={20} /></a>
-                        <a href="#" className="text-slate-400 hover:text-cyan-500 transition-colors"><Twitter size={20} /></a>
-                        <a href="#" className="text-slate-400 hover:text-cyan-500 transition-colors"><Instagram size={20} /></a>
-                        <a href="#" className="text-slate-400 hover:text-cyan-500 transition-colors"><Linkedin size={20} /></a>
-                        <a href="#" className="text-slate-400 hover:text-cyan-500 transition-colors"><Youtube size={20} /></a>
-                    </div>
-                    <div className="text-slate-500 dark:text-slate-600 text-sm text-center md:text-right">
-                        <div>© {new Date().getFullYear()} TakeUUp. {t('footer_rights')}</div>
-                        <div className="text-xs mt-1">{t('footer_made')} <span className="text-red-500">♥</span> {t('footer_in')}</div>
+
+                    <div className="pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                        <div className="text-slate-500 dark:text-slate-600 text-sm text-center md:text-left">
+                            © {new Date().getFullYear()} TakeUUp EdTech Ltd. {t('footer_rights')}
+                        </div>
+                        <div className="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-600">
+                            {t('footer_made')} <Heart size={14} className="text-red-500 fill-red-500 mx-1 animate-pulse" /> {t('footer_in')}
+                        </div>
                     </div>
                 </div>
+                
+                {/* Helper Icon for ArrowRight in Newsletter */}
+                <div className="hidden"><ArrowRight /></div> 
             </footer>
         </div>
     );
