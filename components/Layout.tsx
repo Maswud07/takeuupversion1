@@ -476,7 +476,7 @@ export const Layout = ({ children, isAuthenticated, onLogout }: LayoutProps) => 
 
                     <div className="pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
                         <div className="text-slate-500 dark:text-slate-600 text-sm text-center md:text-left">
-                            © {new Date().getFullYear()} TakeUUp EdTech Ltd. {t('footer_rights')}
+                            © {new Date().getFullYear()} TakeUUp EdTech Ltd. {t('footer_rights')} <span className="opacity-50 text-[10px] ml-1">v1.2</span>
                         </div>
                         <div className="flex items-center gap-1 text-sm text-slate-500 dark:text-slate-600">
                             {t('footer_made')} <Heart size={14} className="text-red-500 fill-red-500 mx-1 animate-pulse" /> {t('footer_in')}

@@ -179,16 +179,22 @@ export const Blog = () => {
       // Load blogs from localStorage
       const storedBlogs = localStorage.getItem('takeuup_blogs');
       if (storedBlogs) {
-          const parsed = JSON.parse(storedBlogs);
-          // Merge with initial to ensure content is present if missing in storage
-          const merged = parsed.map((p: BlogPost) => {
-              if (!p.content) {
-                  const initial = INITIAL_BLOGS.find(i => i.id === p.id);
-                  return { ...p, content: initial?.content || "Content coming soon..." };
-              }
-              return p;
-          });
-          setBlogs(merged);
+          try {
+              const parsed = JSON.parse(storedBlogs);
+              // Merge with initial to ensure content is present if missing in storage
+              const merged = parsed.map((p: BlogPost) => {
+                  if (!p.content) {
+                      const initial = INITIAL_BLOGS.find(i => i.id === p.id);
+                      return { ...p, content: initial?.content || "Content coming soon..." };
+                  }
+                  return p;
+              });
+              setBlogs(merged);
+          } catch (e) {
+              console.error("Failed to parse blogs from storage", e);
+              // Fallback to initial if storage is corrupt
+              setBlogs(INITIAL_BLOGS);
+          }
       } else {
           // If empty, initialize with default data
           localStorage.setItem('takeuup_blogs', JSON.stringify(INITIAL_BLOGS));
