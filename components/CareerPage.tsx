@@ -13,7 +13,8 @@ const STATIC_OPENINGS = [
         icon: <Code size={24} />,
         color: 'text-blue-600 dark:text-blue-400',
         bg: 'bg-blue-50 dark:bg-blue-500/10',
-        border: 'border-blue-200 dark:border-blue-500/30'
+        border: 'border-blue-200 dark:border-blue-500/30',
+        shadow: 'hover:shadow-blue-500/20'
     },
     {
         id: 2,
@@ -25,7 +26,8 @@ const STATIC_OPENINGS = [
         icon: <GraduationCap size={24} />,
         color: 'text-yellow-600 dark:text-yellow-400',
         bg: 'bg-yellow-50 dark:bg-yellow-500/10',
-        border: 'border-yellow-200 dark:border-yellow-500/30'
+        border: 'border-yellow-200 dark:border-yellow-500/30',
+        shadow: 'hover:shadow-yellow-500/20'
     },
     {
         id: 3,
@@ -37,7 +39,8 @@ const STATIC_OPENINGS = [
         icon: <Video size={24} />,
         color: 'text-pink-600 dark:text-pink-400',
         bg: 'bg-pink-50 dark:bg-pink-500/10',
-        border: 'border-pink-200 dark:border-pink-500/30'
+        border: 'border-pink-200 dark:border-pink-500/30',
+        shadow: 'hover:shadow-pink-500/20'
     },
     {
         id: 4,
@@ -49,7 +52,8 @@ const STATIC_OPENINGS = [
         icon: <Zap size={24} />,
         color: 'text-orange-600 dark:text-orange-400',
         bg: 'bg-orange-50 dark:bg-orange-500/10',
-        border: 'border-orange-200 dark:border-orange-500/30'
+        border: 'border-orange-200 dark:border-orange-500/30',
+        shadow: 'hover:shadow-orange-500/20'
     },
     {
         id: 5,
@@ -61,7 +65,8 @@ const STATIC_OPENINGS = [
         icon: <Database size={24} />,
         color: 'text-emerald-600 dark:text-emerald-400',
         bg: 'bg-emerald-50 dark:bg-emerald-500/10',
-        border: 'border-emerald-200 dark:border-emerald-500/30'
+        border: 'border-emerald-200 dark:border-emerald-500/30',
+        shadow: 'hover:shadow-emerald-500/20'
     }
 ];
 
@@ -106,6 +111,7 @@ export const CareerPage = () => {
         color: 'text-purple-600 dark:text-purple-400',
         bg: 'bg-purple-50 dark:bg-purple-500/10',
         border: 'border-purple-200 dark:border-purple-500/30',
+        shadow: 'hover:shadow-purple-500/20',
         hasTest: job.hasTest,
         testConfig: job.testConfig
     }))];
@@ -250,7 +256,7 @@ export const CareerPage = () => {
                         <div 
                             key={job.id} 
                             onClick={() => handleApply(job)}
-                            className={`group relative bg-white dark:bg-[#0F172A] border ${job.border} p-6 md:p-8 rounded-3xl transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-2xl hover:shadow-${job.color.split('-')[1]}-500/10 overflow-hidden cursor-pointer`}
+                            className={`group relative bg-white dark:bg-[#0F172A] border ${job.border} p-6 md:p-8 rounded-3xl transition-all hover:-translate-y-1 hover:shadow-xl dark:hover:shadow-2xl ${job.shadow} overflow-hidden cursor-pointer`}
                         >
                             {/* Hover Glow */}
                             <div className={`absolute inset-0 bg-gradient-to-r ${job.bg.replace('bg-', 'from-')} to-transparent opacity-0 group-hover:opacity-20 transition-opacity duration-500`} />
